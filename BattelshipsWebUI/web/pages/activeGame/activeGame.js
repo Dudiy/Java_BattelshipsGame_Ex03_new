@@ -94,14 +94,14 @@ function endGame() {
             if (endGameResult !== null) {
 
                 if (endGameResult.winner === currentPlayer) {
-                    message = "You win !! :)\n";
+                    message = "You win :) !! \n";
                 } else {
-                    message = "You lost :(\n";
+                    message = "You lose :( \n";
                 }
 
-                message += endGameResult.scores[0].playerName + "'s score: " + endGameResult.scores[0].playerScore + "\n";
-                message += endGameResult.scores[1].playerName + "'s score: " + endGameResult.scores[1].playerScore + "\n";
-                message += "press OK to go back to games room";
+                message += endGameResult.scores[0].playerName + "'s score is: " + endGameResult.scores[0].playerScore + " and \n";
+                message += endGameResult.scores[1].playerName + "'s score is: " + endGameResult.scores[1].playerScore + "\n";
+                message += "...press OK to go back to games room";
 
                 newAlert("Game Ended", message, "success", "OK", function () {
                     exitActiveGameScreen("../gamesRoom/gamesRoom.html");
@@ -290,8 +290,9 @@ function drop(event) {
     debugger;
     event.preventDefault();
     var data = event.dataTransfer.getData("text");
-    plantMine(event.target.id);
-    // event.target.appendChild(document.getElementById(data));
+    if (data === "mine") {
+        plantMine(event.target.id);
+    }
 }
 
 function allowDrop(event) {
