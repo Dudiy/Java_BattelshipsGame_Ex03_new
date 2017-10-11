@@ -118,10 +118,53 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
-
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~ Chat ~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="row" style="position: relative; top: 100px; min-width: 1800px">
+        <div class="col-5">
+            <div id="chat" role="tablist" aria-multiselectable="true">
+                <div class="card">
+                    <div class="card-header" onclick="$('#collapseChat').slideToggle()">
+                        <h4 class="text-center card-header-text">
+                            Chat
+                        </h4>
+                    </div>
+                    <div id="collapseChat" class="collapse">
+                        <div class="card-block">
+                            <form>
+                                <div class="form-group row">
+                                    <div class="col-xs-8">
+                                        <input class="form-control" id="chatMessage" style="width:800px" type="text" placeholder="Enter your message">
+                                        <button type="submit" class="btn btn-primary" style="margin-top: 5px">Send</button>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <textarea class="form-control" id="allChatMessage" rows="10"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="row" style="min-width: 1800px">-->
+        <!--<div id="chat" role="tablist" aria-multiselectable="true">-->
+            <!--<div class="card">-->
+                <!--<div class="card-header" onclick="$('#collapseFour').slideToggle()">-->
+                    <!--<h4 class="text-center card-header-text">-->
+                        <!--Chat-->
+                    <!--</h4>-->
+                <!--</div>-->
+                <!--<div id="collapseChat" class="collapse">-->
+                    <!--<div class="card-block">-->
+                        <!--<h6>Test:</h6>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
 </body>
 </html>
