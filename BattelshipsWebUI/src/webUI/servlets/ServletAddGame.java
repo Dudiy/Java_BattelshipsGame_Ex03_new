@@ -23,27 +23,40 @@ public class ServletAddGame extends HttpServlet {
         response.setContentType("application/json;charset=UTF-8");
         boolean gameFileValid = true;
         ServerManager serverManager = ServletUtils.getServerManager(getServletContext());
+        String gameTitle = request.getParameter("gameTitle");
+        String addGameResult = "";
 
         try (PrintWriter out = response.getWriter()) {
-            Collection<Part> parts = request.getParts();
-            List<InputStream> inputStreamsOfGameFile = new LinkedList<>();
+            if (!serverManager.gameTitleExists(gameTitle) && !gameTitle.equals("null") && !gameTitle.equals("")) {
+                Collection<Part> parts = request.getParts();
+                List<InputStream> inputStreamsOfGameFile = new LinkedList<>();
 
-            for (Part part : parts) {
-                inputStreamsOfGameFile.add(part.getInputStream());
-            }
-            InputStream gameFileContentAsInputStream = new SequenceInputStream(Collections.enumeration(inputStreamsOfGameFile));
-            String addGameResult;
-            String gameCreatorName = SessionUtils.getPlayerName(request);
-            if (gameCreatorName != null) {
-                try {
-                    serverManager.addGame(gameCreatorName, gameFileContentAsInputStream);
-                    addGameResult = "Game loaded successfully !";
-                } catch (Exception e) {
-                    gameFileValid = false;
-                    addGameResult = "Could not load the game, invalid game file selected. inner exception: " + e.getMessage();
+                for (Part part : parts) {
+                    if (part.getName().equals("file")) {
+                        inputStreamsOfGameFile.add(part.getInputStream());
+                    }
+                }
+
+                InputStream gameFileContentAsInputStream = new SequenceInputStream(Collections.enumeration(inputStreamsOfGameFile));
+                String gameCreatorName = SessionUtils.getPlayerName(request);
+                if (gameCreatorName != null) {
+                    try {
+                        serverManager.addGame(gameCreatorName, gameTitle, gameFileContentAsInputStream);
+                        addGameResult = "Game loaded successfully !";
+                    } catch (Exception e) {
+                        gameFileValid = false;
+                        addGameResult = "Could not load the game, invalid game file selected. inner exception: " + e.getMessage();
+                    }
+                } else {
+                    throw new NullPointerException("While adding new game we get to null game creator name");
                 }
             } else {
-                throw new NullPointerException("While adding new game we get to null game creator name");
+                gameFileValid = false;
+                if (gameTitle.equals("null") || gameTitle.equals("")) {
+                    addGameResult = "Could not load the game, A game must have a valid title";
+                } else {
+                    addGameResult = "Could not load the game, A game with the title \"" + gameTitle + "\" already exists";
+                }
             }
 
             Gson gson = new Gson();

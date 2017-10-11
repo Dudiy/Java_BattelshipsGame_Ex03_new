@@ -29,6 +29,7 @@ public class Game implements Serializable {
     private final double stepNumBetweenVersion = 0.1;
     private PlayerScore[] playersScore = new PlayerScore[ 2 ];
     private List<ChatMessage> chatMessages = new LinkedList<>();
+    private String gameTitle = "";
 
     public Game(GameSettings gameSettings) {
         this.ID = IDGenerator++;
@@ -61,6 +62,10 @@ public class Game implements Serializable {
 
     public void addNewChatMessage(String playerName, String message, String messageTime) {
         chatMessages.add(new ChatMessage(playerName, message, messageTime));
+    }
+
+    public void setGameTitle(String gameTitle) {
+        this.gameTitle = gameTitle;
     }
 
     // ======================================= getters =======================================
@@ -122,6 +127,10 @@ public class Game implements Serializable {
 
     public int getChatVersion(){
         return chatMessages.size();
+    }
+
+    public String getGameTitle() {
+        return gameTitle;
     }
 
     // ======================================= Methods =======================================

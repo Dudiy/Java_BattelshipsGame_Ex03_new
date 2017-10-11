@@ -385,7 +385,7 @@ function updateNewChatMessages(chatVersion) {
 
 function appendChatMessage(index, chatMessage) {
     debugger;
-    var message = ">> " + chatMessage.playerName +" (@ " + chatMessage.messageTime+"): "+chatMessage.messageString;
+    var message = ">> " + chatMessage.playerName +" (@ " + chatMessage.messageTime+"): \n"+chatMessage.messageString;
     allChatMeesages += message.toString() + "\n";
     // $("<p>" + message.toString() + "</p>").appendTo("#allChatMessages");
     // $("<br>").appendTo("#allChatMessages");

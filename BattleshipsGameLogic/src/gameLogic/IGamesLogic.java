@@ -37,4 +37,6 @@ public interface IGamesLogic {
     void endGame(Game game, Player quitter);
 
     void endGame(Game game);
+
+    boolean gameTitleExists(String gameTitle);
 }

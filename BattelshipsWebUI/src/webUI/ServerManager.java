@@ -70,7 +70,7 @@ public class ServerManager {
     }
 
     // ======================================= Games Methods =======================================
-    public void addGame(String gameCreatorName, InputStream gameFileContentAsInputStream) throws Exception {
+    public void addGame(String gameCreatorName, String gameTitle, InputStream gameFileContentAsInputStream) throws Exception {
         Player gameCreator = gamesManager.getAllPlayers().get(gameCreatorName);
         // we use gameFileContentAsString for multi use of gameFileContentAsInputStream
         String gameFileContentAsString = convertStringToInputStream(gameFileContentAsInputStream);
@@ -82,6 +82,7 @@ public class ServerManager {
         // game file valid, but we need only load the game(not start the game)
         gameFileContentAsInputStream = new ByteArrayInputStream(gameFileContentAsString.getBytes(StandardCharsets.UTF_8.name()));
         Game validLoadedGame = gamesManager.loadGameFile(gameCreator, gameFileContentAsInputStream);
+        validLoadedGame.setGameTitle(gameTitle);
         gamesManager.getAllGames().put(validLoadedGame.getID(), validLoadedGame);
         this.gamesVersion += stepNumBetweenVersion;
     }
@@ -171,5 +172,9 @@ public class ServerManager {
 
     public List<ChatMessage> getNewChatMessage(Game activeGame, int version) {
         return activeGame.getNewChatMessage(version);
+    }
+
+    public boolean gameTitleExists(String gameTitle) {
+        return gamesManager.gameTitleExists(gameTitle);
     }
 }

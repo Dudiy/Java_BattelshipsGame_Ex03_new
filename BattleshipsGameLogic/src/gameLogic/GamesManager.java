@@ -125,6 +125,20 @@ public class GamesManager implements IGamesLogic {
 
     }
 
+    @Override
+    public boolean gameTitleExists(String gameTitleToFind) {
+        boolean gameTitleFound = false;
+
+        for (Game game : allGames.values()) {
+            if (game.getGameTitle().equals(gameTitleToFind)) {
+                gameTitleFound = true;
+                break;
+            }
+        }
+
+        return gameTitleFound;
+    }
+
 
     public Player getPlayerByName(String playerName) {
         return allPlayers.get(playerName);

@@ -15,28 +15,38 @@ $(function () {
 function uploadFile() {
     var file_data = $("#gamefile").prop("files")[0]; // Getting the properties of file from file field
     var form_data = new FormData(); // Creating object of FormData class
-    form_data.append("file", file_data); // Appending parameter named file with properties of file_field to form_data
-    $.ajax({
-        url: "addGameFromFile", // Upload Script
-        cache: false,
-        contentType: false,
-        processData: false,
-        data: form_data, // Setting the data attribute of ajax with file_data
-        type: 'post',
-        error: function () {
-            console.error("Failed to get ajax response from startGame while try to add new game");
-        },
-        success: function (response) {
-            if (response.validFile){
-                swal("Game loaded successfully", {icon: "success"})
-            }
-            else{
-                swal(response.loadResult, {icon: "error"});
-            }
+    var gameTitle = "";
+    swal({
+        title: "Please input game title:",
+        content: "input",
+        closeOnClickOutside: false
+    }).then(function (value) {
+        gameTitle += value;
+        form_data.append("file", file_data); // Appending parameter named file with properties of file_field to form_data
+        form_data.append("gameTitle", gameTitle);
+        $.ajax({
+            url: "addGameFromFile", // Upload Script
+            cache: false,
+            contentType: false,
+            processData: false,
 
-            swal(response.loadResult, {icon: response.validFile ? "success" : "error"})
-            // alert(response.loadResult)
-        }
+            data: form_data, // Setting the data attribute of ajax with file_data
+            type: 'post',
+            error: function () {
+                console.error("Failed to get ajax response from startGame while try to add new game");
+            },
+            success: function (response) {
+                if (response.validFile) {
+                    swal("Game loaded successfully", {icon: "success"})
+                }
+                else {
+                    swal(response.loadResult, {icon: "error"});
+                }
+
+                swal(response.loadResult, {icon: response.validFile ? "success" : "error"})
+                // alert(response.loadResult)
+            }
+        });
     });
 }
 
@@ -90,15 +100,16 @@ function addGame(index, game) {
     var joinGameDisabledValue = (game.gameState === "INITIALIZED" || game.gameState === "LOADED") ? "" : "disabled";
     var deleteGameDisabledValue = (game.creatorName === game.activePlayerFromSession && game.activePlayers[0] === null && game.activePlayers[1] === null) ? "" : "disabled";
     $('<tr game-id=' + game.gameID + ' class="activeGame">' +
-        '<td style="padding: 10px">' + game.gameID + '</td>' +
-        '<td style="padding: 10px">' + game.creatorName + '</td>' +
-        '<td style="padding: 10px">' + game.boardSize + '</td>' +
-        '<td style="padding: 10px">' + game.gameType + '</td>' +
-        '<td style="padding: 10px">' + addActivePlayerInGame(game.activePlayers) + '</td>' +
+        '<td>' + game.gameID + '</td>' +
+        '<td>' + game.gameTitle + '</td>' +
+        '<td>' + game.creatorName + '</td>' +
+        '<td>' + game.boardSize + '</td>' +
+        '<td>' + game.gameType + '</td>' +
+        '<td>' + addActivePlayerInGame(game.activePlayers) + '</td>' +
         '<td align="center">' +
         '   <button style="margin: 5px" class="btn-sm btn-success" ' + joinGameDisabledValue + ' onclick="joinGame(' + game.gameID + ')"> Join Game </button>' +
         '   <button style="margin: 5px" class="btn-sm btn-danger" ' + deleteGameDisabledValue + ' onclick="swalDeleteAlert(' + game.gameID + ')"> Delete Game </button>' +
-        '   <button style="margin: 5px" class="btn-sm btn-warning" disabled> View Game </button>' +
+        '   <button style="margin: 5px" class="btn-sm btn-warning" title="Bonus option - not implemented" disabled> View Game </button>' +
         '</td>' +
         '</tr>').appendTo($("#gamesList"));
 }

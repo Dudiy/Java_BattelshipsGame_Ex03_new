@@ -33,3 +33,12 @@ table {
     overflow: auto;
     background-color: rgba(255,255,255,0.7)
 }
+
+button[disabled]{
+    cursor: not-allowed;
+}
+
+.activeGame td{
+    padding: 10px;
+    text-align: center;
+}

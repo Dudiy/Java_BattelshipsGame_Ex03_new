@@ -48,6 +48,7 @@ public class ServletAllGames extends HttpServlet {
 
     private class GameDetails {
         private int gameID;
+        private String gameTitle;
         private String creatorName;
         private eGameState gameState;
         private int boardSize;
@@ -57,6 +58,7 @@ public class ServletAllGames extends HttpServlet {
 
         public GameDetails(Game game, String activePlayerFromSession) {
             gameID = game.getID();
+            gameTitle = game.getGameTitle();
             creatorName = game.getGameCreator().getName();
             gameState = game.getGameState();
             boardSize = game.getBoardSize();
