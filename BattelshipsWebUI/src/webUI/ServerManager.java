@@ -30,8 +30,6 @@ public class ServerManager {
     private double playersVersion = 0;
     private double gamesVersion = 0;
 
-    // ======================================= Setter =======================================
-
     // ======================================= Getter =======================================
     public double getPlayersVersion() {
         return playersVersion;
@@ -120,38 +118,21 @@ public class ServerManager {
         activePlayer.addTurnDurationToTotal(turnTime);
         activeGame.updateVersion();
         return attackResult;
-        // TODO
-//        if (activeGame.getGameState() == eGameState.PLAYER_WON) {
-//            onGameEnded(eGameState.STARTED);
-//        }
     }
-
-    //TODO delete?
-//    private BoardCoordinates parseStringCellPositionToCoordinate(String position) {
-//        BoardCoordinates userSelection = null;
-//        try {
-//            userSelection = BoardCoordinates.Parse(position);
-//        } catch (Exception e) {
-//            System.out.println("Invalid attack position" + e.getMessage());
-//        }
-//        return userSelection;
-//    }
 
     public void removePlayer(String gameID, String playerName) throws Exception {
         Game activeGame = getGameByID(gameID);
         Player player = getPlayerByName(playerName);
         activeGame.removePlayerFromGame(player);
-        if(activeGame.isAllPlayersRemove()){
-//            gamesManager.endGame(activeGame);
+        if (activeGame.isAllPlayersRemove()) {
             activeGame.resetGame();
             activeGame.updateVersion();
         }
     }
-//
-    public void endGame(Game activeGame, Player quitter){
+
+    //
+    public void endGame(Game activeGame, Player quitter) {
         gamesManager.endGame(activeGame, quitter);
-//        activeGame.removePlayersFromGame();
-//        activeGame.updateVersion();
     }
 
     public void resetGame(Game activeGame) throws Exception {
@@ -159,15 +140,11 @@ public class ServerManager {
         this.gamesVersion += stepNumBetweenVersion;
     }
 
-    public String activeGameVersion(Game activeGame) {
-        return null;
-    }
-
     // ======================================= Chat Message Methods =======================================
     public void addChatMessage(Game activeGame, String playerName, String message) {
         DateFormat dateFormat = new SimpleDateFormat("HH:mm");
         Date messageInputTime = new Date();
-        activeGame.addNewChatMessage(playerName,message, dateFormat.format(messageInputTime));
+        activeGame.addNewChatMessage(playerName, message, dateFormat.format(messageInputTime));
     }
 
     public List<ChatMessage> getNewChatMessage(Game activeGame, int version) {

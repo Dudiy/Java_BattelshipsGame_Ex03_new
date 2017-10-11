@@ -2,7 +2,7 @@ table.boardDisplay {
     filter: drop-shadow(5px 5px 5px black);
 }
 
-td.boardCell{
+td.boardCell {
     border: hidden;
 }
 
@@ -71,60 +71,60 @@ td.mine {
     width: 800px;
 }
 
-#minesAvailableImg{
+#minesAvailableImg {
     height: 50px;
     width: 50px;
     cursor: pointer;
 }
 
-.card-header{
+.card-header {
     cursor: pointer;
     background: linear-gradient(rgba(65, 105, 225, 0.81), rgba(135, 206, 250, 0.81));
     /*background-color: rgba(65, 105, 225, 0.8);*/
 }
 
-.card-header-text{
+.card-header-text {
     font-weight: bold;
     color: black;
     filter: drop-shadow(2px 2px 2px white);
 }
 
-.card{
+.card {
     background: transparent;
 }
 
-.card-block{
-    background-color: rgba(255,255,255,0.7)
+.card-block {
+    background-color: rgba(255, 255, 255, 0.7)
 }
 
-#mainContainer{
+#mainContainer {
     position: fixed;
     background-size: 100%;
     background-repeat: no-repeat;
     background-image: url('../../images/WelcomeScreen with logo.jpg');
 }
 
-#endGameButton{
+#endGameButton {
     position: fixed;
     right: 20px;
     top: 20px;
-    filter: drop-shadow(2px 2px 4px rgba(255,252,207,0.5));
+    filter: drop-shadow(2px 2px 4px rgba(255, 252, 207, 0.5));
 }
 
-.boardContainer{
-    background-color: rgba(255,255,255,0.7);
+.boardContainer {
+    background-color: rgba(255, 255, 255, 0.7);
     padding: 15px;
     padding-top: 60px;
     padding-bottom: 60px;
     border: inset;
-    filter: drop-shadow(2px 2px 4px rgba(255,252,207,0.5));
+    filter: drop-shadow(2px 2px 4px rgba(255, 252, 207, 0.5));
 }
 
-#shipsStateTable td, #shipsStateTable th{
+#shipsStateTable td, #shipsStateTable th {
     border: 1px black solid;
 }
 
-#shipsStateTable{
+#shipsStateTable {
     filter: drop-shadow(2px 2px 4px black);
     border: outset 2px;
 }

@@ -33,7 +33,7 @@ public class ServletJoinGame extends HttpServlet {
                 out.print(requestSuccess.toString());
                 out.flush();
             }
-        }else{
+        } else {
             throw new ServletException("You are already in a game game");
         }
     }
@@ -48,5 +48,3 @@ public class ServletJoinGame extends HttpServlet {
         processRequest(req, resp);
     }
 }
-
-// test

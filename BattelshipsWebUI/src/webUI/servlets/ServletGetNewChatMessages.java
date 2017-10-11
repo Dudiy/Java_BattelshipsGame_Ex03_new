@@ -2,7 +2,6 @@ package webUI.servlets;
 
 import com.google.gson.Gson;
 import gameLogic.game.Game;
-import gameLogic.users.Player;
 import webUI.ServerManager;
 import webUI.utils.ServletUtils;
 import webUI.utils.SessionUtils;
@@ -26,11 +25,9 @@ public class ServletGetNewChatMessages extends HttpServlet {
         ServerManager serverManager = ServletUtils.getServerManager(getServletContext());
         Game activeGame = serverManager.getGameByID(gameID);
         try (PrintWriter out = response.getWriter()) {
-            String jsonResponse=null;
-//            if(version != activeGame.getChatVersion()){
-                Gson gson = new Gson();
-                jsonResponse = gson.toJson(serverManager.getNewChatMessage(activeGame, version));
-//            }
+            String jsonResponse = null;
+            Gson gson = new Gson();
+            jsonResponse = gson.toJson(serverManager.getNewChatMessage(activeGame, version));
             out.print(jsonResponse);
             out.flush();
         }
