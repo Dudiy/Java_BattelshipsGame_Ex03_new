@@ -99,22 +99,23 @@ function addGame(index, game) {
     debugger;
     var joinGameDisabledValue = (game.gameState === "INITIALIZED" || game.gameState === "LOADED") ? "" : "disabled";
     var deleteGameDisabledValue = (game.creatorName === game.activePlayerFromSession && game.activePlayers[0] === null && game.activePlayers[1] === null) ? "" : "disabled";
-    $('<tr game-id=' + game.gameID + ' class="activeGame">' +
+    $('<tr id=' + game.gameID + ' class="activeGame">' +
         '<td>' + game.gameID + '</td>' +
         '<td>' + game.gameTitle + '</td>' +
         '<td>' + game.creatorName + '</td>' +
         '<td>' + game.boardSize + '</td>' +
         '<td>' + game.gameType + '</td>' +
-        '<td>' + addActivePlayerInGame(game.activePlayers) + '</td>' +
+        '<td class="activePlayersCell">' + addActivePlayerInGame(game.activePlayers, game.gameID) + '</td>' +
         '<td align="center">' +
         '   <button style="margin: 5px" class="btn-sm btn-success" ' + joinGameDisabledValue + ' onclick="joinGame(' + game.gameID + ')"> Join Game </button>' +
         '   <button style="margin: 5px" class="btn-sm btn-danger" ' + deleteGameDisabledValue + ' onclick="swalDeleteAlert(' + game.gameID + ')"> Delete Game </button>' +
         '   <button style="margin: 5px" class="btn-sm btn-warning" title="Bonus option - not implemented" disabled> View Game </button>' +
         '</td>' +
         '</tr>').appendTo($("#gamesList"));
+    colorActiveGames();
 }
 
-function addActivePlayerInGame(activePlayers) {
+function addActivePlayerInGame(activePlayers, gameID) {
     var activePlayerString;
 
     activePlayerString = "";
@@ -126,7 +127,34 @@ function addActivePlayerInGame(activePlayers) {
         activePlayerString += ", " + activePlayers[1];
     }
 
+    if (activePlayers[0] !== null && activePlayers[1] !== null) {
+        activePlayerString += " (active game)";
+    }
+
     return activePlayerString;
+}
+
+function colorActiveGames() {
+    var games = $(".activeGame");
+    $.each(games || [], function (index, game) {
+        debugger;
+        var activePlayers = game.getElementsByClassName("activePlayersCell")[0].innerHTML;
+        if (activePlayers.indexOf("active game") !== -1) {
+            $("#" + game.id).addClass("table-success");
+        }
+        else {
+            if ($("#" + game.id).hasClass("table-success")) {
+                $("#" + game.id).removeClass("table-success");
+            }
+        }
+        // if (activePlayers[0] !== null && activePlayers[1] !== null) {
+        //     activePlayerString += " (active game)";
+        //     $("#" + gameID).addClass("table-success");
+        // }
+        // else {
+        //     $("#" + gameID).removeClass("table-success");
+        // }
+    });
 }
 
 function logout() {
