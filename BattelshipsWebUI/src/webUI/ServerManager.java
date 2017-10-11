@@ -3,6 +3,7 @@ package webUI;
 import gameLogic.GamesManager;
 import gameLogic.exceptions.CellNotOnBoardException;
 import gameLogic.exceptions.ComputerPlayerException;
+import gameLogic.game.ChatMessage;
 import gameLogic.game.Game;
 import gameLogic.game.board.BoardCoordinates;
 import gameLogic.game.eAttackResult;
@@ -15,6 +16,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -154,5 +156,14 @@ public class ServerManager {
 
     public String activeGameVersion(Game activeGame) {
         return null;
+    }
+
+    // ======================================= Chat Message Methods =======================================
+    public void addChatMessage(Game activeGame, String playerName, String message) {
+        activeGame.addNewChatMessage(playerName,message,"TODO how to pass the time");
+    }
+
+    public List<ChatMessage> getNewChatMessage(Game activeGame, int version) {
+        return activeGame.getNewChatMessage(version);
     }
 }

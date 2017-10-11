@@ -25,9 +25,10 @@ public class Game implements Serializable {
     private ShipFactory shipFactory;
     private eGameState gameState = eGameState.INVALID;
     private GameSettings gameSettings;
-    private double version = 0;
+    private double gameVersion = 0;
     private final double stepNumBetweenVersion = 0.1;
     private PlayerScore[] playersScore = new PlayerScore[ 2 ];
+    private List<ChatMessage> chatMessages = new LinkedList<>();
 
     public Game(GameSettings gameSettings) {
         this.ID = IDGenerator++;
@@ -50,12 +51,16 @@ public class Game implements Serializable {
         this.gameStartTime = startTime;
     }
 
-    public double getVersion() {
-        return version;
+    public double getGameVersion() {
+        return gameVersion;
     }
 
     public void updateVersion() {
-        version += stepNumBetweenVersion;
+        gameVersion += stepNumBetweenVersion;
+    }
+
+    public void addNewChatMessage(String playerName, String message, String messageTime) {
+        chatMessages.add(new ChatMessage(playerName, message, messageTime));
     }
 
     // ======================================= getters =======================================
@@ -109,6 +114,14 @@ public class Game implements Serializable {
 
     public eGameType getGameType() {
         return gameSettings.getGameType();
+    }
+
+    public List<ChatMessage> getNewChatMessage(int oldVersion) {
+        return chatMessages.subList(oldVersion, chatMessages.size());
+    }
+
+    public int getChatVersion(){
+        return chatMessages.size();
     }
 
     // ======================================= Methods =======================================
@@ -242,7 +255,7 @@ public class Game implements Serializable {
     }
 
     public void playerForfeit(Player quitter) {
-        winner = players[0] == quitter ? players[1] : players[0];
+        winner = players[ 0 ] == quitter ? players[ 1 ] : players[ 0 ];
         gameState = eGameState.PLAYER_QUIT;
         setPlayersScore();
     }

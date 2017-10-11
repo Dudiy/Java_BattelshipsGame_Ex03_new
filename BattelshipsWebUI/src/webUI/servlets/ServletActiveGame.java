@@ -86,7 +86,7 @@ public class ServletActiveGame extends HttpServlet {
                     resetGame(request, activeGame);
                     break;
                 case VERSION:
-                    jsonResponse = gson.toJson(activeGame.getVersion());
+                    jsonResponse = gson.toJson(activeGame.getGameVersion());
                     break;
                 case GAME_TYPE:
                     jsonResponse = gson.toJson(activeGame.getGameSettings().getGameType().toString());

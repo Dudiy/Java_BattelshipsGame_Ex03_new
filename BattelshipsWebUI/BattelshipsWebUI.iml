@@ -22,7 +22,7 @@
     <orderEntry type="module" module-name="BattleshipsGameLogic" />
     <orderEntry type="library" name="gson-2.1" level="project" />
     <orderEntry type="library" name="Java EE 6-Java EE 6 (4)" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.81" level="application_server_libraries" />
     <orderEntry type="library" name="Java EE 6-Java EE 6 (3)" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Examples Tomcat" level="application_server_libraries" />
   </component>
 </module>
