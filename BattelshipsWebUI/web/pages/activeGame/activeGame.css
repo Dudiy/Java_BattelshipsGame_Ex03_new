@@ -1,0 +1,130 @@
+table.boardDisplay {
+    filter: drop-shadow(5px 5px 5px black);
+}
+
+td.boardCell{
+    border: hidden;
+}
+
+td.water {
+    background: url("../../images/Water.png");
+}
+
+td.hit {
+    background: url("../../images/Hit.png");
+}
+
+td.miss {
+    background: url("../../images/Miss.png");
+}
+
+td.problem {
+    background: url("../../images/Problem.png");
+}
+
+td.ship {
+    background: url("../../images/Ship.png");
+}
+
+td.sinking-ship {
+    background: url("../../images/Sinking Ship.png");
+}
+
+td.mine {
+    background: url("../../images/Mine on water.png");
+}
+
+#opponentBoard td:hover {
+    /*background: rgba(72,250,255,0.66);*/
+    filter: brightness(0.8);
+}
+
+.board-title {
+    margin-bottom: 20px;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.screen-overlay {
+    z-index: 9999;
+    position: absolute; /*Important to cover the screen in case of scolling content*/
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: center;
+    background: rgba(200, 200, 200, 0.5) url('../../Images/submit-ajax-loader.gif') no-repeat center; /*.gif file or just div with message etc. however you like*/
+}
+
+#myBoard, #opponentBoard {
+    width: 600px;
+    height: 600px;
+}
+
+#waiting-for-opponent-msg {
+    background: radial-gradient(white, gray);
+    border: solid black 1px;
+    padding: 20px;
+    margin-top: 220px;
+    filter: drop-shadow(5px 5px 5px black);
+    width: 800px;
+}
+
+#minesAvailableImg{
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.card-header{
+    cursor: pointer;
+    background: linear-gradient(rgba(65, 105, 225, 0.81), rgba(135, 206, 250, 0.81));
+    /*background-color: rgba(65, 105, 225, 0.8);*/
+}
+
+.card-header-text{
+    font-weight: bold;
+    color: black;
+    filter: drop-shadow(2px 2px 2px white);
+}
+
+.card{
+    background: transparent;
+}
+
+.card-block{
+    background-color: rgba(255,255,255,0.7)
+}
+
+#mainContainer{
+    position: fixed;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url('../../images/WelcomeScreen with logo.jpg');
+}
+
+#endGameButton{
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    filter: drop-shadow(2px 2px 4px rgba(255,252,207,0.5));
+}
+
+.boardContainer{
+    background-color: rgba(255,255,255,0.7);
+    padding: 15px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border: inset;
+    filter: drop-shadow(2px 2px 4px rgba(255,252,207,0.5));
+}
+
+#shipsStateTable td, #shipsStateTable th{
+    border: 1px black solid;
+}
+
+#shipsStateTable{
+    filter: drop-shadow(2px 2px 4px black);
+    border: outset 2px;
+}

@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: lib\BattleshipsGameLogic.jar
+Main-Class: javaFXUI.Program
+

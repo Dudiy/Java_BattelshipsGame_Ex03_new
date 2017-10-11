@@ -1,0 +1,35 @@
+th, td {
+    border: 1px solid #000000!important;
+}
+
+table {
+    background-color: #e4fff8;
+}
+
+#mainContainer{
+    position: fixed;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url('../../images/WelcomeScreen with logo.jpg');
+}
+
+#logoutButton{
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    filter: drop-shadow(2px 2px 4px rgba(255,252,207,0.5));
+}
+
+#onlinePlayersDiv{
+    filter: drop-shadow(6px 6px 6px);
+    max-height: 700px;
+    overflow-y: auto;
+}
+
+#activeGamesDiv{
+    filter: drop-shadow(6px 6px 6px);
+    border: inset gray;
+    height: 700px ;
+    overflow: auto;
+    background-color: rgba(255,255,255,0.7)
+}

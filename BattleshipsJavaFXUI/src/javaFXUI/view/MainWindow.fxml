@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefWidth="1171.0" styleClass="BackgroundArea" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaFXUI.view.MainWindowController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Game">
+            <items>
+              <MenuItem fx:id="buttonPauseGame" mnemonicParsing="false" onAction="#OnClickPauseMenu" text="Pause Game" />
+                  <MenuItem fx:id="buttonEndCurrentGame" mnemonicParsing="false" onAction="#OnClickEndCurrentGame" text="End Current Game" />
+                  <MenuItem fx:id="buttonExit" mnemonicParsing="false" onAction="#OnClickExit" text="Exit" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Options">
+              <items>
+                  <Menu mnemonicParsing="false" text="Change Style">
+                    <items>
+                        <RadioMenuItem fx:id="menuItemNoStyle" mnemonicParsing="false" onAction="#menuItemNoStyle_Clicked" selected="true" text="No Style" />
+                        <RadioMenuItem fx:id="menuItemStyleA" mnemonicParsing="false" onAction="#menuItemStyleA_Clicked" text="Style A" />
+                        <RadioMenuItem fx:id="menuItemStyleB" mnemonicParsing="false" onAction="#menuItemStyleB_Clicked" text="Style B" />
+                        <RadioMenuItem fx:id="menuItemStyleC" mnemonicParsing="false" onAction="#menuItemStyleC_clicked" text="Style C" />
+                    </items>
+                  </Menu>
+                  <CheckMenuItem fx:id="menuItemTransitionsEnabled" mnemonicParsing="false" onAction="#OnAnimationsDisabled_Click" text="Disable Animations" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <HBox prefHeight="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefWidth="420.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox prefHeight="548.0" prefWidth="582.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Region styleClass="Region" HBox.hgrow="ALWAYS" />
+                        <ScrollPane prefHeight="573.0" prefWidth="402.0" styleClass="ScrollPane">
+                           <content>
+                              <VBox fx:id="vBoxMyBoard" prefHeight="598.0" prefWidth="400.0" styleClass="BackgroundArea">
+                                 <children>
+                                    <HBox prefWidth="400.0">
+                                       <children>
+                                          <Region styleClass="Region" HBox.hgrow="ALWAYS" />
+                                          <Label alignment="CENTER" styleClass="BoardTitle" text="My Board" textAlignment="CENTER">
+                                             <font>
+                                                <Font size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <Region styleClass="Region" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="20.0" />
+                                       </padding>
+                                    </HBox>
+                                    <Region prefHeight="54.0" prefWidth="281.0" styleClass="Region" />
+                                    <TilePane fx:id="tilePaneMyBoard" maxHeight="400.0" maxWidth="400.0" minHeight="400.0" minWidth="386.0" prefHeight="400.0" prefWidth="386.0" />
+                                    <Region layoutX="10.0" layoutY="42.0" prefHeight="54.0" prefWidth="281.0" styleClass="Region" VBox.vgrow="ALWAYS" />
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                        <Region HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+             <AnchorPane prefWidth="420.0" HBox.hgrow="ALWAYS">
+               <HBox prefHeight="548.0" prefWidth="582.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <children>
+                     <Region styleClass="Region" HBox.hgrow="ALWAYS" />
+                       <ScrollPane styleClass="ScrollPane">
+                           <VBox fx:id="vBoxOpponentsBoard" minWidth="400.0" prefHeight="598.0" prefWidth="400.0" styleClass="BackgroundArea">
+                           <HBox minWidth="400.0" prefWidth="400.0">
+                              <children>
+                                 <Region styleClass="Region" HBox.hgrow="ALWAYS" />
+                                     <Label alignment="TOP_CENTER" styleClass="BoardTitle" text="Opponent's Board" textAlignment="CENTER">
+                                    <font>
+                                       <Font size="22.0" />
+                                    </font>
+                                 </Label>
+                                 <Region styleClass="Region" HBox.hgrow="ALWAYS" />
+                              </children>
+                              <opaqueInsets>
+                                 <Insets />
+                              </opaqueInsets>
+                              <padding>
+                                 <Insets top="20.0" />
+                              </padding>
+                           </HBox>
+                               <Region prefHeight="54.0" prefWidth="281.0" styleClass="Region" />
+                           <TilePane fx:id="tilePaneOpponentsBoard" maxHeight="400.0" maxWidth="400.0" minHeight="400.0" minWidth="400.0" prefHeight="400.0" prefWidth="400.0" />
+                           <Region layoutX="10.0" layoutY="42.0" prefHeight="54.0" prefWidth="281.0" styleClass="Region" VBox.vgrow="ALWAYS" />
+                           </VBox>
+                       </ScrollPane>
+                     <Region HBox.hgrow="ALWAYS" />
+                  </children>
+               </HBox>
+             </AnchorPane>
+            <Separator orientation="VERTICAL" />
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

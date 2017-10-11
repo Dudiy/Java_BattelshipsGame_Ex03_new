@@ -1,0 +1,32 @@
+.BackgroundArea, Region {
+    -fx-background-color: antiquewhite;
+}
+
+.scroll-pane {
+    -fx-background-color: antiquewhite;
+}
+
+.label {
+    -fx-font-family: Forte;
+}
+
+.BoardTitle {
+    -fx-font-weight: bold;
+    -fx-font-size: 30;
+    -fx-underline: true;
+    -fx-effect: dropshadow(three-pass-box, grey, 7, 0.15, 2, 2);
+}
+
+.table-view {
+    -fx-alternative-column-fill-visible: true;
+    -fx-background-color: azure;
+    -fx-blend-mode: src-over;
+}
+
+.button {
+    -fx-background-color: linear-gradient(darkgray, lightcyan, darkgray);
+}
+
+.button:hover{
+    -fx-background-color: linear-gradient(lightcyan, darkgray, lightcyan);
+}

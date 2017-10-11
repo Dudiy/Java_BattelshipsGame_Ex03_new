@@ -1,0 +1,31 @@
+.BackgroundArea, Region {
+    -fx-background-color: lightskyblue;
+}
+
+.scroll-pane {
+    -fx-background-color: lightskyblue;
+}
+
+.label {
+    -fx-font-family: Broadway;
+}
+
+.BoardTitle {
+    -fx-font-weight: bold;
+    -fx-font-size: 30;
+    -fx-underline: true;
+}
+
+.table-view {
+    -fx-alternative-column-fill-visible: true;
+    -fx-background-color: azure;
+    -fx-blend-mode: src-over;
+}
+
+.button {
+    -fx-background-color: linear-gradient(darkturquoise, lightcyan, darkturquoise);
+}
+
+.button:hover{
+    -fx-background-color: linear-gradient(lightcyan, darkturquoise, lightcyan);
+}

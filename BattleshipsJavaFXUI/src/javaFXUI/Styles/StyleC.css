@@ -1,0 +1,31 @@
+.BackgroundArea, Region {
+    -fx-background-color: lightgreen;
+}
+
+.scroll-pane {
+    -fx-background-color: lightgreen;
+}
+
+.label {
+    -fx-font-family: Lucida Handwriting;
+}
+
+.BoardTitle {
+    -fx-font-weight: bold;
+    -fx-font-size: 30;
+    -fx-underline: true;
+}
+
+.table-view {
+    -fx-alternative-column-fill-visible: true;
+    -fx-background-color: azure;
+    -fx-blend-mode: src-over;
+}
+
+.button {
+    -fx-background-color: linear-gradient(lawngreen, white, lawngreen);
+}
+
+.button:hover{
+    -fx-background-color: linear-gradient(white, lawngreen, white);
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Battle Ship - Start Game</title>
+    <script type="text/javascript" src="../../common/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="gamesRoom.css">
+    <script type="text/javascript" src="gamesRoom.js"></script>
+    <script src="../../common/swal.js"></script>
+</head>
+<body>
+<div class="container h-100 w-100" id="mainContainer">
+    <button class="btn btn-primary" id="logoutButton" onclick="logout()">
+        Logout
+    </button>
+    <div class="row h-100" style="position: relative; top: 100px; right: 20px">
+        <div class="col-2" id="onlinePlayersDiv">
+            <table class="table-hover w-100 table-bordered table-striped" style="border: outset; font-size: 150%">
+                <thead class="table-inverse bg-primary">
+                <tr>
+                    <th class="text-center" style="padding: 10px; text-decoration: underline">Online Players</th>
+                </tr>
+                </thead>
+                <tbody id="active-players-table"></tbody>
+            </table>
+        </div>
+
+        <div class="col-10" id="activeGamesDiv">
+            <div class="row justify-content-center" style="padding: 10px">
+                <h5 style="padding-right: 20px">Add a new game: </h5>
+                <input id="gamefile" type="file" name="gamefile"/>
+                <button id="uploadfile" value="Upload" onclick="uploadFile()"> Upload Game</button>
+            </div>
+            <div id="games-table" class="row justify-content-center"
+                 style="padding-top: 20px; text-decoration: underline">
+                <h3><b>Active Games:</b></h3>
+            </div>
+            <table class="table-hover w-100 table-bordered table-striped" style="border: outset">
+                <thead class="table-inverse bg-primary">
+                <tr>
+                    <th class="text-center">Game ID</th>
+                    <th class="text-center">Creator</th>
+                    <th class="text-center">Board size</th>
+                    <th class="text-center">Game type</th>
+                    <th class="text-center">Active players</th>
+                    <th><!-- buttons --></th>
+                </tr>
+                </thead>
+                <tbody id="gamesList"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

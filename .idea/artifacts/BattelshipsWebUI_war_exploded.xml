@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="BattelshipsWebUI:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/BattelshipsWebUI_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="BattelshipsWebUI" />
+          <element id="module-output" name="BattleshipsGameLogic" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="artifact" artifact-name="BattleshipsGameLogic:jar" />
+          <element id="library" level="project" name="gson-2.1" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="BattelshipsWebUI/web/Web" />
+    </root>
+  </artifact>
+</component>
