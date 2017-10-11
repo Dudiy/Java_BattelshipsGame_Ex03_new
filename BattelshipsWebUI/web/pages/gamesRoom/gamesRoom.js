@@ -147,7 +147,7 @@ function joinGame(gameId) {
 
 function deleteGame(gameId) {
     debugger;
-    swalDeleteAlert()
+    swalDeleteAlert();
     $.ajax({
         data: {"gameID": gameId.toString()},
         url: "deleteGame",
