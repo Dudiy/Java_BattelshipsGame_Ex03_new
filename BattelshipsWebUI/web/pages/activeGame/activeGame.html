@@ -30,28 +30,37 @@
 <div class="container h-100 w-100" id="mainContainer" style="overflow: auto">
     <button class="btn-lg btn-warning" id="endGameButton" onclick="endGame()">End Game</button>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~ Overlay for wait screen ~~~~~~~~~~~~~~~~~~~~~~ -->
-    <div id="requestOverlay" class="screen-overlay" hidden style="position: absolute; top: 100px">
-        <div class="row justify-content-center">
-            <h1 class="text-center" id="waiting-for-opponent-msg"></h1>
-        </div>
-    </div>
+    <!--<div id="requestOverlay" class="screen-overlay" hidden style="position: absolute; top: 100px">-->
+    <!--<div class="row justify-content-center">-->
+    <!--<h1 class="text-center" id="waiting-for-opponent-msg"></h1>-->
+    <!--</div>-->
+    <!--</div>-->
 
     <div class="row" style="position: relative; top: 100px; min-width: 1800px">
         <!-- ~~~~~~~~~~~~~~~~~~~~~~ Boards ~~~~~~~~~~~~~~~~~~~~~~ -->
-        <div class="col-5 boardContainer">
-            <h2 class="text-center board-title">My Board</h2>
-            <div class="d-flex justify-content-center">
-                <div class="p-2">
-                    <table id="myBoard" class="boardDisplay">
-                    </table>
+        <div class="col-10">
+            <div id="requestOverlay" class="screen-overlay" hidden style="position: absolute">
+                <div class="row justify-content-center">
+                    <h1 class="text-center" id="waiting-for-opponent-msg"></h1>
                 </div>
             </div>
-        </div>
-        <div class="col-5 boardContainer">
-            <h2 class="text-center board-title">Opponent's Board</h2>
-            <div class="d-flex p-2 justify-content-center">
-                <table id="opponentBoard" class="boardDisplay">
-                </table>
+            <div class="row">
+                <div class="col boardContainer">
+                    <h2 class="text-center board-title">My Board</h2>
+                    <div class="d-flex justify-content-center">
+                        <div class="p-2">
+                            <table id="myBoard" class="boardDisplay">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col boardContainer">
+                    <h2 class="text-center board-title">Opponent's Board</h2>
+                    <div class="d-flex p-2 justify-content-center">
+                        <table id="opponentBoard" class="boardDisplay">
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- ~~~~~~~~~~~~~~~~~~~~~~ Statistics ~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -127,16 +136,18 @@
                     <div id="collapseFour" class="collapse">
                         <div class="card-block">
                             <!--<textarea class="float-left chatTextArea" id="chatMessage" type="text"-->
-                                      <!--placeholder="Enter your message"-->
-                                      <!--rows="1"></textarea>-->
+                            <!--placeholder="Enter your message"-->
+                            <!--rows="1"></textarea>-->
                             <!--<button class="float-left btn-sm btn-primary" onclick="sendChatMessage()"-->
-                                    <!--style="margin-left: 5px">-->
-                                <!--Send-->
+                            <!--style="margin-left: 5px">-->
+                            <!--Send-->
                             <!--</button>-->
                             <div class="input-group">
-                                <input id="chatMessage" type="text" class="form-control" placeholder="Enter your message">
+                                <input id="chatMessage" type="text" class="form-control"
+                                       placeholder="Enter your message">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-secondary" type="button" onclick="sendChatMessage()">Send</button>
+                                    <button class="btn btn-secondary" type="button"
+                                            onclick="sendChatMessage()">Send</button>
                                 </span>
                             </div>
                             <textarea class="w-100 chatTextArea rounded-left" id="allChatMessages" rows="10"

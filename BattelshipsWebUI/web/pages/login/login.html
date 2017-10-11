@@ -7,6 +7,15 @@
     <script type="text/javascript" src="login.js"></script>
     <script src="../../common/swal.js"></script>
     <title>Battle Ship - Login</title>
+    <style>
+        #loginBox {
+            filter: drop-shadow(6px 6px 6px);
+            border: inset gray 2px;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
 <div class="container h-100 w-100"
@@ -15,7 +24,7 @@
     </div>
     <div class="row justify-content-md-center align-items-center">
         <div class="col"></div>
-        <div class="col-auto rounded" style="background:linear-gradient(rgba(0,255,237,0.8),#ffffff); padding: 20px">
+        <div class="col-auto rounded" id="loginBox">
             <div class="form-group" id="playerInput">
                 <label class="form-control-label" for="playerName"><b>Name:</b></label>
                 <input type="text" class="form-control" id="playerName">
