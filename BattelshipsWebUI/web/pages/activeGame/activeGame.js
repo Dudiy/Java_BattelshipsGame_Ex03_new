@@ -126,7 +126,7 @@ function refreshPlayersTitle() {
             console.error("Failed to get ajax response from startGame while trying refresh player names");
         },
         success: function (gamePlayers) {
-            debugger;
+            // debugger;
             currentPlayer = gamePlayers.currentPlayer;
             activePlayer = gamePlayers.activePlayer;
             numPlayersInGame = gamePlayers.numPlayersInGame;
@@ -321,6 +321,28 @@ function plantMine(targetCell) {
 
             alert(alertMessage);
             refreshAll();
+        }
+    });
+}
+
+function sendChatMessage(targetCell) {
+    debugger;
+
+    console.log("SADDSAD");
+
+    var m = document.getElementById('chatMessage').value;
+    var message = document.getElementById('chatMessage').value;
+    console.log(message);
+    $.ajax({
+        data: {
+            "message": message
+        },
+        url: "sendChatMessage",
+        error: function () {
+            console.error("Failed to get ajax response from startGame while try to send chat message");
+        },
+        success: function (result) {
+            $("#chatMessage").html="";
         }
     });
 }

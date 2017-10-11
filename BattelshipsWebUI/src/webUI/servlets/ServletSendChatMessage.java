@@ -21,7 +21,7 @@ import java.util.List;
 public class ServletSendChatMessage extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        response.setContentType("application/json;charset=UTF-8");
-        final String MESSAGE = "massage";
+        final String MESSAGE = "message";
         final String gameID = SessionUtils.getActiveGame(request);
         final String playerName = SessionUtils.getPlayerName(request);
         final String message = request.getParameter(MESSAGE);

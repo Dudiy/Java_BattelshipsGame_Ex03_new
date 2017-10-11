@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "ServletGetNewChatMessage", urlPatterns = "/pages/activeGame/getNewChatMessage")
-public class ServletGetNewChatMessage extends HttpServlet {
+@WebServlet(name = "ServletGetNewChatMessages", urlPatterns = "/pages/activeGame/getNewChatMessages")
+public class ServletGetNewChatMessages extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json;charset=UTF-8");
         final String VERSION = "version";

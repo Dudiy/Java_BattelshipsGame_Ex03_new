@@ -135,8 +135,11 @@
                             <form>
                                 <div class="form-group row">
                                     <div class="col-xs-8">
-                                        <input class="form-control" id="chatMessage" style="width:800px" type="text" placeholder="Enter your message">
-                                        <button type="submit" class="btn btn-primary" style="margin-top: 5px">Send</button>
+                                        <input class="form-control" id="chatMessage" type="text"
+                                               placeholder="Enter your message">
+                                        <button type="submit" onclick="sendChatMessage()" class="btn btn-primary"
+                                                style="margin-top: 5px">Send
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -149,22 +152,6 @@
             </div>
         </div>
     </div>
-    <!--<div class="row" style="min-width: 1800px">-->
-        <!--<div id="chat" role="tablist" aria-multiselectable="true">-->
-            <!--<div class="card">-->
-                <!--<div class="card-header" onclick="$('#collapseFour').slideToggle()">-->
-                    <!--<h4 class="text-center card-header-text">-->
-                        <!--Chat-->
-                    <!--</h4>-->
-                <!--</div>-->
-                <!--<div id="collapseChat" class="collapse">-->
-                    <!--<div class="card-block">-->
-                        <!--<h6>Test:</h6>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
 </div>
 </body>
 </html>
