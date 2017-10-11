@@ -35,7 +35,8 @@ public class ServletActiveGame extends HttpServlet {
     private static final String MAKE_MOVE = "makeMove";
     private static final String END_GAME = "endGame";
     private static final String RESET_GAME = "resetGame";
-    private static final String VERSION = "version";
+    private static final String GAME_VERSION = "gameVersion";
+    private static final String CHAT_VERSION = "chatVersion";
     private static final String GAME_TYPE = "gameType";
     private static final String PLAYERS_SCORE = "playersScore";
     private static final String CHECK_WIN = "checkWin";
@@ -85,8 +86,11 @@ public class ServletActiveGame extends HttpServlet {
                 case RESET_GAME:
                     resetGame(request, activeGame);
                     break;
-                case VERSION:
+                case GAME_VERSION:
                     jsonResponse = gson.toJson(activeGame.getGameVersion());
+                    break;
+                case CHAT_VERSION:
+                    jsonResponse = gson.toJson(activeGame.getChatVersion());
                     break;
                 case GAME_TYPE:
                     jsonResponse = gson.toJson(activeGame.getGameSettings().getGameType().toString());

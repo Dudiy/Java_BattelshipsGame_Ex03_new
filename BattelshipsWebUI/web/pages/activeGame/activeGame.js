@@ -3,6 +3,7 @@ var activePlayer;
 var numPlayersInGame;
 // TODO
 var clientGameVersion = 0;
+var clientChatVersion = 0;
 var tableSize = 5;
 var REFRESH_RATE_QUICK = 500;
 var REFRESH_RATE = 2000;
@@ -34,7 +35,7 @@ function refreshAll() {
 
 function checkForUpdate() {
     $.ajax({
-        data: {"action": "version"},
+        data: {"action": "gameVersion"},
         url: "activeGame",
         error: function () {
             console.error("Failed to get ajax response get active game version");
@@ -44,6 +45,20 @@ function checkForUpdate() {
                 console.log("active game versions: client- " + clientGameVersion + "server- " + serverVersion);
                 clientGameVersion = serverVersion;
                 refreshAll();
+            }
+        }
+    });
+
+    $.ajax({
+        data: {"action": "chatVersion"},
+        url: "activeGame",
+        error: function () {
+            console.error("Failed to get ajax response get active chat version");
+        },
+        success: function (chatVersion) {
+            if (clientChatVersion < chatVersion) {
+                console.log("active chat versions: client- " + clientChatVersion + "chat- " + chatVersion);
+                updateNewChatMessages(chatVersion);
             }
         }
     });
@@ -326,13 +341,7 @@ function plantMine(targetCell) {
 }
 
 function sendChatMessage(targetCell) {
-    debugger;
-
-    console.log("SADDSAD");
-
-    var m = document.getElementById('chatMessage').value;
     var message = document.getElementById('chatMessage').value;
-    console.log(message);
     $.ajax({
         data: {
             "message": message
@@ -345,4 +354,35 @@ function sendChatMessage(targetCell) {
             $("#chatMessage").html="";
         }
     });
+}
+
+function updateNewChatMessages(chatVersion) {
+    debugger;
+    $.ajax({
+        data: {
+            "version": clientChatVersion
+        },
+        url: "getNewChatMessages",
+        async: false,
+        error: function () {
+            console.error("Failed to get ajax response from startGame while try update chat message");
+        },
+        success: function (newChatMessages) {
+            debugger;
+            $.each(newChatMessages || [], appendChatMessage);
+            debugger;
+            clientChatVersion = chatVersion;
+
+            debugger;
+
+        }
+    });
+}
+
+function appendChatMessage(index, chatMessage) {
+    debugger;
+    var message = chatMessage.playerName +"(" + chatMessage.messageTime+"): "+chatMessage.messageString;
+    $("<p>" + message.toString() + "</p>").appendTo("#allChatMessages");
+    $("<br>").appendTo("#allChatMessages");
+    debugger;
 }

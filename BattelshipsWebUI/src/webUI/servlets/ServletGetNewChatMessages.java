@@ -27,10 +27,10 @@ public class ServletGetNewChatMessages extends HttpServlet {
         Game activeGame = serverManager.getGameByID(gameID);
         try (PrintWriter out = response.getWriter()) {
             String jsonResponse=null;
-            if(version != activeGame.getChatVersion()){
+//            if(version != activeGame.getChatVersion()){
                 Gson gson = new Gson();
                 jsonResponse = gson.toJson(serverManager.getNewChatMessage(activeGame, version));
-            }
+//            }
             out.print(jsonResponse);
             out.flush();
         }
