@@ -14,8 +14,12 @@ import webUI.utils.SessionUtils;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -160,7 +164,9 @@ public class ServerManager {
 
     // ======================================= Chat Message Methods =======================================
     public void addChatMessage(Game activeGame, String playerName, String message) {
-        activeGame.addNewChatMessage(playerName,message,"TODO how to pass the time");
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        Date messageInputTime = new Date();
+        activeGame.addNewChatMessage(playerName,message, dateFormat.format(messageInputTime));
     }
 
     public List<ChatMessage> getNewChatMessage(Game activeGame, int version) {

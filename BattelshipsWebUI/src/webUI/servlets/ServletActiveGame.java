@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.Duration;
 import java.util.*;
 
 @WebServlet(name = "ServletActiveGame", urlPatterns = "/pages/activeGame/activeGame")
@@ -284,7 +285,8 @@ public class ServletActiveGame extends HttpServlet {
             totalMoveCounter = currentPlayer.getNumTurnsPlayed();
             myScore = currentPlayer.getScore();
             opponentScore = otherPlayer != null ? otherPlayer.getScore() : 0;
-            averageTurnDuration = currentPlayer.getAvgTurnDuration().toString();
+            Duration avgDuration = currentPlayer.getAvgTurnDuration();
+            averageTurnDuration = String.format("%d:%02d", avgDuration.toMinutes(), avgDuration.getSeconds() % 60);
             hitCounter = currentPlayer.getTimesHit();
             missCounter = currentPlayer.getTimesMissed();
             setAllShipsState(currentPlayer, otherPlayer);

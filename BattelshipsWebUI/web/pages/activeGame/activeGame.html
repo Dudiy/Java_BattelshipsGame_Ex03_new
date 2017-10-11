@@ -117,35 +117,30 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~ Chat ~~~~~~~~~~~~~~~~~~~~~~ -->
-    <div class="row" style="position: relative; top: 100px; min-width: 1800px">
-        <div class="col-5">
-            <div id="chat" role="tablist" aria-multiselectable="true">
+                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Chat ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
                 <div class="card">
-                    <div class="card-header" onclick="$('#collapseChat').slideToggle()">
+                    <div class="card-header" onclick="$('#collapseFour').slideToggle()">
                         <h4 class="text-center card-header-text">
                             Chat
                         </h4>
                     </div>
-                    <div id="collapseChat" class="collapse">
+                    <div id="collapseFour" class="collapse">
                         <div class="card-block">
-                            <form>
-                                <div class="form-group row">
-                                    <div class="col-xs-8">
-                                        <input class="form-control" id="chatMessage" type="text"
-                                               placeholder="Enter your message">
-                                        <button type="submit" onclick="sendChatMessage()" class="btn btn-primary"
-                                                style="margin-top: 5px">Send
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <textarea class="form-control" id="allChatMessages" rows="10"></textarea>
-                                </div>
-                            </form>
+                            <!--<textarea class="float-left chatTextArea" id="chatMessage" type="text"-->
+                                      <!--placeholder="Enter your message"-->
+                                      <!--rows="1"></textarea>-->
+                            <!--<button class="float-left btn-sm btn-primary" onclick="sendChatMessage()"-->
+                                    <!--style="margin-left: 5px">-->
+                                <!--Send-->
+                            <!--</button>-->
+                            <div class="input-group">
+                                <input id="chatMessage" type="text" class="form-control" placeholder="Enter your message">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-secondary" type="button" onclick="sendChatMessage()">Send</button>
+                                </span>
+                            </div>
+                            <textarea class="w-100 chatTextArea rounded-left" id="allChatMessages" rows="10"
+                                      style="margin-top: 10px; border: inset 1px; border-radius: 10px"></textarea>
                         </div>
                     </div>
                 </div>

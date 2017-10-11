@@ -10,6 +10,7 @@ var REFRESH_RATE = 2000;
 var TABLE_DRAW_SIZE = 600;
 var quickRefreshInterval;
 var refreshInterval;
+var allChatMeesages = "";
 
 // on page load
 $(function () {
@@ -352,7 +353,7 @@ function sendChatMessage(targetCell) {
             console.error("Failed to get ajax response from startGame while try to send chat message");
         },
         success: function (result) {
-            $("#chatMessage").html="";
+            $("#chatMessage").val("");
         }
     });
 }
@@ -378,12 +379,15 @@ function updateNewChatMessages(chatVersion) {
 
         }
     });
+    debugger;
+    $("#allChatMessages").val(allChatMeesages);
 }
 
 function appendChatMessage(index, chatMessage) {
     debugger;
-    var message = chatMessage.playerName +"(" + chatMessage.messageTime+"): "+chatMessage.messageString;
-    $("<p>" + message.toString() + "</p>").appendTo("#allChatMessages");
-    $("<br>").appendTo("#allChatMessages");
+    var message = ">> " + chatMessage.playerName +" (@ " + chatMessage.messageTime+"): "+chatMessage.messageString;
+    allChatMeesages += message.toString() + "\n";
+    // $("<p>" + message.toString() + "</p>").appendTo("#allChatMessages");
+    // $("<br>").appendTo("#allChatMessages");
     debugger;
 }
