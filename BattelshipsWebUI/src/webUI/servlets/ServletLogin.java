@@ -3,7 +3,6 @@ package webUI.servlets;
 import webUI.Constants;
 import webUI.ServerManager;
 import webUI.utils.ServletUtils;
-import webUI.utils.SessionUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

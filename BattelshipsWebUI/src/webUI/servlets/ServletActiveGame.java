@@ -144,10 +144,10 @@ public class ServletActiveGame extends HttpServlet {
         String activePlayerName = activeGame.getActivePlayer() != null ? activeGame.getActivePlayer().getName() : "";
         int numPlayersInGame = 0;
         Player[] players = activeGame.getPlayers();
-        if (players[0] != null) {
+        if (players[ 0 ] != null) {
             numPlayersInGame++;
         }
-        if (players[1] != null) {
+        if (players[ 1 ] != null) {
             numPlayersInGame++;
         }
         // jsonResponse
@@ -216,17 +216,17 @@ public class ServletActiveGame extends HttpServlet {
         // before game start
         public BoardView(int boardSize) {
             this.boardSize = boardSize;
-            boardView = new String[boardSize][boardSize];
+            boardView = new String[ boardSize ][ boardSize ];
             for (int row = 0; row < boardSize; row++) {
                 for (int col = 0; col < boardSize; col++) {
-                    boardView[row][col] = eCellState.WATER.toString();
+                    boardView[ row ][ col ] = eCellState.WATER.toString();
                 }
             }
         }
 
         BoardView(Board board, boolean boardVisible) throws CellNotOnBoardException {
             boardSize = board.getBoardSize();
-            boardView = new String[boardSize][boardSize];
+            boardView = new String[ boardSize ][ boardSize ];
             setBoardView(board, boardVisible);
         }
 
@@ -234,7 +234,7 @@ public class ServletActiveGame extends HttpServlet {
             for (int row = 0; row < boardSize; row++) {
                 for (int col = 0; col < boardSize; col++) {
                     BoardCell boardCell = board.getBoardCellAtCoordinates(BoardCoordinates.Parse(row, col));
-                    boardView[row][col] = getCellView(boardCell, boardVisible);
+                    boardView[ row ][ col ] = getCellView(boardCell, boardVisible);
                 }
             }
         }
@@ -315,9 +315,6 @@ public class ServletActiveGame extends HttpServlet {
         private int myAmount;
         private int opponentAmount;
 
-        ShipState() {
-        }
-
         void setShipType(String shipType) {
             this.shipType = shipType;
         }
@@ -362,15 +359,6 @@ public class ServletActiveGame extends HttpServlet {
     }
 
     // ======================================= End Game Methods =======================================
-//    private void endGame(HttpServletRequest request) throws Exception {
-//        ServerManager serverManager = ServletUtils.getServerManager(getServletContext());
-//        String activeGameID = SessionUtils.getActiveGame(request);
-//        String currentPlayerName = SessionUtils.getPlayerName(request);
-////        serverManager.endGame(activeGameID);
-//        serverManager.removePlayer(activeGameID, currentPlayerName);
-//        SessionUtils.removeGameAttribute(request);
-//    }
-
     private void removeActivePlayerFromGame(HttpServletRequest request, Game activeGame) throws Exception {
         ServerManager serverManager = ServletUtils.getServerManager(getServletContext());
         String activeGameID = SessionUtils.getActiveGame(request);
@@ -402,26 +390,13 @@ public class ServletActiveGame extends HttpServlet {
         SessionUtils.removeGameAttribute(request);
         Player[] players = activeGame.getPlayers();
         // if the other player has already left the game
-        if (players[0] == null && players[1] == null) {
+        if (players[ 0 ] == null && players[ 1 ] == null) {
             serverManager.resetGame(activeGame);
         }
     }
 
     // ======================================= Other Methods =======================================
     private String getPlayersScore(Game activeGame) {
-//        HashMap<String, String> mapResponse = new HashMap<>();
-//        ServerManager serverManager = ServletUtils.getServerManager(getServletContext());
-//        String currentPlayerNameFromSession = SessionUtils.getPlayerName(request);
-//        Player currentPlayer = serverManager.getPlayerByName(currentPlayerNameFromSession);
-//        Player otherPlayer = currentPlayerNameFromSession.equals(activeGame.getActivePlayer().getName()) ?
-//                activeGame.getOtherPlayer() : activeGame.getActivePlayer();
-//
-//        mapResponse.put("currentPlayerName", currentPlayerNameFromSession);
-//        mapResponse.put("otherPlayerName", currentPlayerNameFromSession);
-//        mapResponse.put("currentPlayerScore", Integer.toString(currentPlayer.getScore()));
-//        mapResponse.put("otherPlayerScore", Integer.toString(otherPlayer.getScore()));
-//         jsonResponse
-//        return gson.toJson(mapResponse);
         return gson.toJson(activeGame.getPlayersScore());
     }
 

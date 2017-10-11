@@ -27,10 +27,10 @@ function uploadFile() {
             console.error("Failed to get ajax response from startGame while try to add new game");
         },
         success: function (response) {
-            if (response.validFile){
+            if (response.validFile) {
                 swal("Game loaded successfully", {icon: "success"})
             }
-            else{
+            else {
                 swal(response.loadResult, {icon: "error"});
             }
 
