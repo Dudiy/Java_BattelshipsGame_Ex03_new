@@ -41,7 +41,7 @@ public class ServerManager {
 
     public Map<String, Player> getAllPlayers() {
         return gamesManager.getAllPlayers();
-    }
+    }s
 
     public Map<Integer, Game> getAllGames() {
         return gamesManager.getAllGames();

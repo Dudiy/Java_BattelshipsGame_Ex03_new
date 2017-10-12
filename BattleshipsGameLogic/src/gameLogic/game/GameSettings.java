@@ -108,23 +108,6 @@ public class GameSettings implements Serializable {
         }
 
         return gameSettings;
-
-/*        GameSettings gameSettings = new GameSettings();
-
-        try {
-            InputStream fileInputStream = new FileInputStream(gameFilePath);
-            gameSettings.gameLoadedFromXml = deserializeFrom(fileInputStream);
-            validateGameSettings(gameSettings);
-            if (gameSettings.gameLoadedFromXml.getMine() != null) {
-                gameSettings.minesPerPlayer = gameSettings.gameLoadedFromXml.getMine().getAmount();
-            }
-        } catch (JAXBException e) {
-            throw new LoadException("Error loading xml file - JAXB error");
-        } catch (Exception e) {s
-            throw new LoadException(e.getMessage());
-        }
-
-        return gameSettings;*/
     }
 
     //TODO merge the two method

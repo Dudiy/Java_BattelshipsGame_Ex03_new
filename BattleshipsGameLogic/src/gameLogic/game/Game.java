@@ -298,6 +298,7 @@ public class Game implements Serializable {
 //            throw new Exception("Error while resetting game. internal error: " + e.getMessage());
 //        }
         removePlayersFromGame();
+        chatMessages.clear();
         gameState = eGameState.LOADED;
 //        gameStartTime = Instant.now();
 

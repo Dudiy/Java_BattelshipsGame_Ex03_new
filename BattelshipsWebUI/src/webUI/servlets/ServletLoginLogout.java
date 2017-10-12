@@ -12,10 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-//TODO change name
-@WebServlet(name = "ServletLogin", urlPatterns = {"/pages/login/login"})
-public class ServletLogin extends HttpServlet {
-
+@WebServlet(name = "ServletLoginLogout", urlPatterns = {"/pages/login/login"})
+public class ServletLoginLogout extends HttpServlet {
     private final String LOGIN_URL = "../login/login.html";
     private final String START_GAME_URL = "../gamesRoom/gamesRoom.html";
 

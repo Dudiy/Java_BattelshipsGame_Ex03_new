@@ -1,7 +1,6 @@
 var currentPlayer;
 var activePlayer;
 var numPlayersInGame;
-// TODO
 var clientGameVersion = 0;
 var clientChatVersion = 0;
 var tableSize = 5;
