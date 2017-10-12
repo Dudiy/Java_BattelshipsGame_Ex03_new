@@ -110,7 +110,6 @@ public class GameSettings implements Serializable {
         return gameSettings;
     }
 
-    //TODO merge the two method
     public static GameSettings loadGameFile(InputStream fileInputStream) throws LoadException {
         GameSettings gameSettings = new GameSettings();
 
